@@ -11,10 +11,14 @@
         假设 内部有个属性设置了PaddingTop但是滑动的时候就忽视paddingTop的 则使用该属性如设置android:clipToPadding=false-->
 <!--    android:clipChildren的意思：是否限制子View在其范围内-->
 
+
+    <!--直接子布局中添加app:layout_behavior属性能实现一些滚动效果-->
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
+        <!--AppBarLayout继承自LinearLayout-->
+        <!--默认有CoordinatorLayout的layout_behavior属性,所以能实现各种效果-->
+        <!--其直接子控件可以设置layout_scrollFlags属性，不同的效果就自己去试吧，实践才是王道-->
         <android.support.design.widget.AppBarLayout
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
@@ -22,7 +26,12 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:elevation="0dp"
             app:layout_behavior="com.dl.mybaseproject.demo5.AppBarLayoutOverScrollViewBehavior">
-
+            <!--CollapsingToolbarLayout继承自framLayout-->
+            <!--它的直接子布局可以使用属性layout_collapseMode控制折叠模式:取值: -->
+            <!--1.pin:自己实践吧-->
+            <!--2.parallax:视察效果layout_collapseParallaxMultiplier视差因子 0~1之间取值-->
+            <!--3.不设置或者设为none:跟随NestedScrollView一起滑动,NestedScrollView滑动多少距离他就会跟着走多少距离-->
+            <!--CollapsingToolbarLayout折叠到最顶端时,会处于最上层,包括toolbar在内,所有的布局都会被他盖住,显示不出来，或者可以设置一个透明的背景显示下面的内容-->
             <android.support.design.widget.CollapsingToolbarLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -83,7 +92,7 @@
 
                 </com.dl.mybaseproject.demo5.DisInterceptNestedScrollViewaaaa>
 
-
+                <!--只要CollapsingToolbarLayout里面包含有Toolbar那么CollapsingToolbarLayout折叠后最小高度就是toolbar的高度-->
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
