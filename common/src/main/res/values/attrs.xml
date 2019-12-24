@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="LoadingLayout">
+        <!-- 空布局资源id -->
+        <attr name="llEmptyResId" format="reference" />
+        <!-- 加载中布局资源id -->
+        <attr name="llLoadingResId" format="reference" />
+        <!-- 错误布局资源id -->
+        <attr name="llErrorResId" format="reference" />
+
+        <!--加载布局图片/动画-->
+        <attr name="llLoadingImage" format="reference" />
+        <attr name="llLoadingText" format="string" />
+
+        <!-- 空布局图片 -->
+        <attr name="llEmptyImage" format="reference" />
+        <!-- 空布局文本 -->
+        <attr name="llEmptyText" format="string" />
+
+        <!-- 错误布局图片 -->
+        <attr name="llErrorImage" format="reference" />
+        <!-- 错误布局文本 -->
+        <attr name="llErrorText" format="string" />
+        <!-- 错误布局重试按钮文本 -->
+        <attr name="llRetryText" format="string" />
+
+        <!-- 文本颜色 -->
+        <attr name="llTextColor" format="color" />
+        <!-- 文本尺寸 -->
+        <attr name="llTextSize" format="dimension" />
+
+        <!-- 按钮文本颜色 -->
+        <attr name="llButtonTextColor" format="color" />
+        <!-- 按钮文本尺寸 -->
+        <attr name="llButtonTextSize" format="dimension" />
+        <!-- 按钮背景 -->
+        <attr name="llButtonBackground" format="reference" />
+
+
+    </declare-styleable>
+    <attr name="styleLoadingLayout" format="reference" />
+
+
+    <declare-styleable name="BambooFlowViewPager">
+        <attr name="pageSpace" format="dimension" />
+        <attr name="pageRound" format="float" />
+        <attr name="translationFactor" format="float" />
+        <attr name="scaleFactor" format="float" />
+        <attr name="rotationYFactor" format="float" />
+        <attr name="reflectAlphaFactor" format="float" />
+        <attr name="maxRotationY" format="float" />
+        <attr name="rotaionYAble" format="boolean" />
+        <attr name="clipAble" format="boolean" />
+    </declare-styleable>
+
+
+    <declare-styleable name="PageIndicator">
+        <attr name="selected_color" format="color|reference" />
+        <attr name="unselected_color" format="color|reference" />
+        <attr name="count" format="integer" />
+    </declare-styleable>
+
+
+    <attr name="arcHeight" format="dimension" />
+
+    <declare-styleable name="ArcView">
+        <attr name="arcHeight" />
+        <attr name="bgColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ArcImageView">
+        <attr name="arcHeight" />
+    </declare-styleable>
+
+
+    <declare-styleable name="PayPasswordView">
+        <attr name="passLength" format="integer" />
+        <attr name="borderWidth" format="dimension" />
+        <attr name="borderColor" format="color" />
+        <attr name="passText" format="string" />
+        <attr name="passTextSize" format="dimension" />
+        <attr name="passTextColor" format="color" />
+        <attr name="radius" format="dimension" />
+    </declare-styleable>
+
+
+    <declare-styleable name="PasswordViewShape">
+        <!--形状-->
+        <attr name="shape" format="enum">
+            <enum name="circle" value="0"/>
+            <enum name="rect" value="1"/>
+        </attr>
+        <!--形状为circle时的半径-->
+        <attr name="mRadius" format="integer|dimension"/>
+
+        <!--形状为rect时的宽高-->
+        <attr name="rectW" format="integer|dimension"/>
+        <attr name="rectH" format="integer|dimension"/>
+        <!--字体大小和颜色-->
+        <attr name="edit_text_size" format="integer|dimension"/>
+        <attr name="edit_text_color" format="color|reference"/>
+        <!--背景色-->
+        <attr name="uncheck_drawable" format="reference"/>
+        <attr name="checked_drawable" format="reference"/>
+
+        <!--光标-->
+        <attr name="cursor_drawable" format="reference"/>
+
+        <!--数量-->
+        <attr name="edit_num" format="integer|dimension"/>
+    </declare-styleable>
+
+
+
+    <declare-styleable name="DrawerMenu">
+        <attr name="drawerPercent" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="MoveImage">
+        <attr name="direction" format="integer" />
+        <attr name="speed" format="integer"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="SwipeMenuLayout">
+        <attr name="swipeEnable" format="boolean"/>
+        <attr name="ios" format="boolean"/>
+        <attr name="leftSwipe" format="boolean"/>
+    </declare-styleable>
+
+</resources>

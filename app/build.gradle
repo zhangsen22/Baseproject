@@ -1,0 +1,76 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion deps.build_version.compileSdkVersion
+    buildToolsVersion deps.build_version.buildVersion
+    defaultConfig {
+        applicationId "com.dl.mybaseproject"
+        minSdkVersion deps.build_version.minSdkVersion
+        targetSdkVersion deps.build_version.targetSdkVersion
+        versionCode deps.build_version.versionCode
+        versionName deps.build_version.versionName
+
+        ndk {
+            //设置支持的SO库架构
+            //abiFilters 'armeabi', 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+            abiFilters 'armeabi', 'armeabi-v7a'
+        }
+
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'user'
+            keyPassword '123456'
+            storeFile file('../keystore/user.jks')
+            storePassword '123456'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+        debug {
+            zipAlignEnabled true
+            signingConfig signingConfigs.release
+        }
+    }
+
+
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    sourceSets {
+        main {
+            //jni库的调用会到资源文件夹下libs里面找so文件
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+    }
+    compileOptions {
+        sourceCompatibility deps.build_version.javaVersion
+        targetCompatibility deps.build_version.javaVersion
+    }
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api project(':common')
+    //黄油刀 虽然common里已经有此依赖 但如果这里不写的话 不起作用 view会报空指针
+    api deps.butter.api
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    annotationProcessor deps.butter.annotationProcessor
+    api deps.viewpager.api
+    api deps.banner.api
+    api deps.badge.api
+    api deps.imgLoader.api
+}

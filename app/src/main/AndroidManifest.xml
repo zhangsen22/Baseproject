@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dl.mybaseproject">
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+    <application
+        android:name=".MyApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/dl_logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- 全面屏适配 -->
+        <meta-data
+            android:name="android:max_aspect"
+            android:value="2.1" />
+
+        <activity android:name=".splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".main.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".demo1.Demo1Activity"
+            android:theme="@style/AppTheme.Transparent" />
+        <activity
+            android:name=".demo1.ShareElementActivity"
+            android:theme="@style/AppTheme.Transparent" />
+        <activity
+            android:name=".demo2.Demo2Activity"
+            android:theme="@style/AppTheme.Transparent" />
+        <activity
+            android:name=".demo3.view.Demo3Activity"
+            android:theme="@style/AppTheme.Transparent" />
+        <activity
+            android:name=".demo4.Demo4Activity"
+            android:theme="@style/AppTheme.Transparent" />
+        <activity
+            android:name=".demo5.Demo5Activity"
+            android:theme="@style/AppTheme.Transparent" />
+        <activity android:name=".demo6.Demo6Activity" />
+        <activity
+            android:name=".demo7.Demo7Activity"
+
+            android:theme="@style/AppTheme.Transparent" />
+    </application>
+
+</manifest>
