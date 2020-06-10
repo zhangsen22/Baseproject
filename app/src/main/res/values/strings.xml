@@ -8,8 +8,6 @@
     <string name="content_behavior">com.dl.mybaseproject.demo5.FixScrollingFooterBehavior</string>
 
 
-
-
     <string name="appbar_overscroll_behavior">com.dl.mybaseproject.demo5.AppBarLayoutOverScrollViewBehavior</string>
 
 </resources>

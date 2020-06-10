@@ -17,6 +17,8 @@ import com.dl.mybaseproject.demo4.Demo4Activity;
 import com.dl.mybaseproject.demo5.Demo5Activity;
 import com.dl.mybaseproject.demo6.Demo6Activity;
 import com.dl.mybaseproject.demo7.Demo7Activity;
+import com.dl.mybaseproject.demo8.Demo8Activity;
+import com.dl.mybaseproject.demo9.Demo9Activity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,6 +95,8 @@ public class MainActivity extends BaseActivity {
         data.add(new MainDataBean(R.mipmap.home_demo5, "TabLayout+ViewPager吸顶及刷新数量动画", Demo5Activity.class));
         data.add(new MainDataBean(R.mipmap.home_demo6, "仿QQ首页drawer/侧滑删除/浮动imgaeView/角标拖拽", Demo6Activity.class));
         data.add(new MainDataBean(R.mipmap.home_demo7, "仿微信朋友圈多图上传/拖拽排序删除", Demo7Activity.class));
+        data.add(new MainDataBean(R.mipmap.home_more, "自定义Behavior", Demo8Activity.class));
+        data.add(new MainDataBean(R.mipmap.home_more, "滚动显示TextView的数字,支持自定义每个字符速度。", Demo9Activity.class));
 
         for (int i = 0; i < 20; i++) {
             data.add(new MainDataBean(R.mipmap.home_more, "待续", Demo1Activity.class));

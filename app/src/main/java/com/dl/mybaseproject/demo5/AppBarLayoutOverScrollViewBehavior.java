@@ -164,11 +164,10 @@ public class AppBarLayoutOverScrollViewBehavior extends AppBarLayout.Behavior {
             }else if(mTargetView != null && ((dy > 0 && child.getBottom() <= mParentHeight))){//往上滑     解决有空白的间距
                 super.onNestedPreScroll(coordinatorLayout, child, target, dx, dy, consumed,type);
                 return;
-            }else if(mTargetView != null &&  (dy > 0 && child.getBottom() > mParentHeight)){//手指向上视差滑动   解决有空白的间距
+            }else if(mTargetView != null &&  (dy >= 0 && child.getBottom() > mParentHeight)){//手指向上视差滑动   解决有空白的间距
                 scale(child, target, dy);
                 return;
-            }
-//            super.onNestedPreScroll(coordinatorLayout, child, target, dx, dy, consumed,type);
+            }else if (mTargetView != null && ((dy < 0 && child.getBottom() >= mParentHeight ))) {}
         }
     }
 
