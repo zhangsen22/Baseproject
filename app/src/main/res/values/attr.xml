@@ -5,5 +5,8 @@
         <attr name="smil_line_width" format="integer" />
         <attr name="smil_duration" format="integer" />
     </declare-styleable>
+    <declare-styleable name="CircleProgressImageView">
+        <attr name="imageRes" format="reference"/>
+    </declare-styleable>
 
 </resources>
