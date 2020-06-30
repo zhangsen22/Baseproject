@@ -1,18 +1,423 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    style="@style/MatchMatch">
 
-    <com.dl.mybaseproject.demo10.CircleProgressImageView
-        android:id="@+id/dbdbdb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:imageRes="@mipmap/icon_spot_light_off"
-        android:layout_gravity="center"
-        android:layout_marginTop="100dp"/>
+    <LinearLayout
+        style="@style/MatchMatch.Vertical"
+        android:gravity="center_horizontal"
+        android:background="@color/grayF5"
+        android:padding="@dimen/gap">
 
-</LinearLayout>
+        <TextView
+            style="@style/MatchWrap"
+            android:layout_margin="16dp"
+            android:background="@drawable/selector_btn_demo_stroke"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="jumpToDefault"
+            android:padding="16dp"
+            android:text="系统自带 ProgressBar 支持的样式"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"/>
+
+
+        <ProgressBar
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:progress="40"
+            android:secondaryProgress="80"/>
+
+        <ProgressBar
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:progress="40"
+            android:progressBackgroundTint="#6DBCDB"
+            android:progressTint="#FF530D"
+            android:secondaryProgress="80"
+            android:secondaryProgressTint="#70A800"/>
+
+        <ProgressBar
+            style="@android:style/Widget.Holo.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:progress="40"
+            android:secondaryProgress="80"/>
+
+        <ProgressBar
+            style="@android:style/Widget.Holo.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:progress="40"
+            android:progressBackgroundTint="#6DBCDB"
+            android:progressTint="#FF530D"
+            android:secondaryProgress="80"
+            android:secondaryProgressTint="#70A800"/>
+
+        <ProgressBar
+            style="@android:style/Widget.Material.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:progress="40"
+            android:secondaryProgress="80"/>
+
+        <ProgressBar
+            style="@android:style/Widget.Material.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:progress="40"
+            android:progressBackgroundTint="#6DBCDB"
+            android:progressTint="#FF530D"
+            android:secondaryProgress="80"
+            android:secondaryProgressTint="#70A800"/>
+
+        <LinearLayout
+            style="@style/MatchWrap.Horizontal"
+            android:layout_marginTop="@dimen/gap"
+            android:gravity="center_vertical">
+
+            <ProgressBar
+                style="@android:style/Widget.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ProgressBar
+                style="@android:style/Widget.ProgressBar.Inverse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ProgressBar
+                style="@android:style/Widget.ProgressBar.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ProgressBar
+                style="@android:style/Widget.ProgressBar.Large.Inverse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ProgressBar
+                style="@android:style/Widget.ProgressBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ProgressBar
+                style="@android:style/Widget.ProgressBar.Small.Inverse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/MatchWrap.Horizontal"
+            android:layout_marginTop="@dimen/gap"
+            android:gravity="center_vertical">
+
+            <ProgressBar
+                style="@android:style/Widget.Material.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="@android:style/Widget.Material.ProgressBar.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ProgressBar
+                style="@android:style/Widget.Material.ProgressBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ProgressBar
+                style="@android:style/Widget.Material.ProgressBar.Small.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ProgressBar
+                style="@android:style/Widget.Holo.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ProgressBar
+                style="@android:style/Widget.DeviceDefault.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- indeterminate模式时只有转圈,progress相关设置无效 -->
+        <LinearLayout
+            style="@style/MatchWrap.Horizontal"
+            android:layout_marginTop="@dimen/gap"
+            android:gravity="center_vertical">
+
+            <ProgressBar
+                style="@android:style/Widget.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminateDrawable="@drawable/rotate_drawable"/>
+
+            <ProgressBar
+                style="@android:style/Widget.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminateDrawable="@drawable/rotate_drawable"
+                android:indeterminateTint="#ff0000"/>
+
+            <ProgressBar
+                style="@android:style/Widget.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminateDrawable="@drawable/rotate_shape1"/>
+
+            <ProgressBar
+                style="@android:style/Widget.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="false"
+                android:indeterminateBehavior="repeat"
+                android:indeterminateDrawable="@drawable/rotate_shape2"/>
+
+            <ProgressBar
+                style="@android:style/Widget.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:indeterminateBehavior="cycle"
+                android:indeterminateDrawable="@drawable/rotate_shape2"
+                android:indeterminateTint="#00ff00"/>
+
+            <ProgressBar
+                style="@android:style/Widget.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="false"
+                android:indeterminateBehavior="repeat"
+                android:indeterminateDrawable="@drawable/rotate_shape3"/>
+
+            <ProgressBar
+                style="@android:style/Widget.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:indeterminateBehavior="cycle"
+                android:indeterminateDrawable="@drawable/rotate_shape3"
+                android:indeterminateDuration="4000"
+                android:indeterminateTint="#00ff00"/>
+        </LinearLayout>
+
+        <ProgressBar
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:progress="40"
+            android:progressDrawable="@drawable/layer_shape1"
+            android:secondaryProgress="80"/>
+
+        <ProgressBar
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:progress="40"
+            android:progressDrawable="@drawable/layer_shape2"
+            android:secondaryProgress="80"/>
+
+        <ProgressBar
+            style="@android:style/Widget.Holo.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:progress="40"
+            android:progressDrawable="@drawable/layer_shape2"
+            android:secondaryProgress="80"/>
+
+        <ProgressBar
+            style="@android:style/Widget.Material.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:progress="40"
+            android:progressDrawable="@drawable/layer_shape2"
+            android:secondaryProgress="80"/>
+
+        <ProgressBar
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:progress="40"
+            android:progressDrawable="@drawable/layer_shape3"
+            android:secondaryProgress="80"/>
+
+        <ProgressBar
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:progress="40"
+            android:progressDrawable="@drawable/layer_shape4"
+            android:secondaryProgress="80"/>
+
+        <LinearLayout
+            style="@style/MatchMatch.Vertical"
+            android:gravity="center_horizontal">
+
+            <TextView
+                style="@style/MatchWrap"
+                android:layout_margin="16dp"
+                android:background="@drawable/selector_btn_demo_stroke"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="jumpToDefault"
+                android:padding="16dp"
+                android:text="自定义 ProgressBar 支持的样式"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimary"/>
+
+            <com.dl.mybaseproject.demo10.BGAProgressBar
+                android:id="@+id/pb_main_demo1"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:progress="40"
+                android:progressDrawable="@drawable/layer_shape4"
+                android:secondaryProgress="80"/>
+
+            <com.dl.mybaseproject.demo10.BGAProgressBar
+                android:id="@+id/pb_main_demo2"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap"
+                android:max="200"
+                android:padding="15dp"
+                android:progress="40"
+                app:bga_pb_mode="horizontal"/>
+
+            <com.dl.mybaseproject.demo10.BGAProgressBar
+                android:id="@+id/pb_main_demo3"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap"
+                android:padding="15dp"
+                android:progress="40"
+                app:bga_pb_isCapRounded="true"
+                app:bga_pb_mode="horizontal"
+                app:bga_pb_reachedColor="#FF530D"
+                app:bga_pb_reachedHeight="4dp"
+                app:bga_pb_textColor="#FF530D"
+                app:bga_pb_textMargin="8dp"
+                app:bga_pb_textSize="14sp"
+                app:bga_pb_unReachedColor="#ECF0F1"
+                app:bga_pb_unReachedHeight="2dp"/>
+
+            <com.dl.mybaseproject.demo10.BGAProgressBar
+                android:id="@+id/pb_main_demo4"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap"
+                android:padding="15dp"
+                android:progress="40"
+                app:bga_pb_isCapRounded="false"
+                app:bga_pb_isHiddenText="true"
+                app:bga_pb_mode="horizontal"
+                app:bga_pb_reachedColor="#FFC73B"
+                app:bga_pb_reachedHeight="4dp"
+                app:bga_pb_textColor="#FFC73B"
+                app:bga_pb_textMargin="8dp"
+                app:bga_pb_textSize="14sp"
+                app:bga_pb_unReachedColor="#ECF0F1"
+                app:bga_pb_unReachedHeight="2dp"/>
+
+            <LinearLayout
+                style="@style/MatchWrap.Horizontal"
+                android:gravity="center">
+
+                <com.dl.mybaseproject.demo10.BGAProgressBar
+                    android:id="@+id/pb_main_demo5"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap"
+                    android:max="200"
+                    android:padding="15dp"
+                    android:progress="40"
+                    app:bga_pb_mode="circle"/>
+
+                <com.dl.mybaseproject.demo10.BGAProgressBar
+                    android:id="@+id/pb_main_demo6"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap"
+                    android:padding="15dp"
+                    android:progress="40"
+                    app:bga_pb_isCapRounded="true"
+                    app:bga_pb_mode="circle"
+                    app:bga_pb_radius="24dp"
+                    app:bga_pb_reachedColor="#FF530D"
+                    app:bga_pb_reachedHeight="4dp"
+                    app:bga_pb_textColor="#FF530D"
+                    app:bga_pb_textSize="14sp"
+                    app:bga_pb_unReachedColor="#ECF0F1"
+                    app:bga_pb_unReachedHeight="2dp"/>
+
+                <com.dl.mybaseproject.demo10.BGAProgressBar
+                    android:id="@+id/pb_main_demo7"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap"
+                    android:padding="15dp"
+                    android:progress="40"
+                    app:bga_pb_isCapRounded="false"
+                    app:bga_pb_isHiddenText="true"
+                    app:bga_pb_mode="circle"
+                    app:bga_pb_radius="24dp"
+                    app:bga_pb_reachedColor="#FFC73B"
+                    app:bga_pb_reachedHeight="6dp"
+                    app:bga_pb_textColor="#FFC73B"
+                    app:bga_pb_textSize="14sp"
+                    app:bga_pb_unReachedColor="#ECF0F1"
+                    app:bga_pb_unReachedHeight="3dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <com.dl.mybaseproject.demo10.CircleProgressImageView
+            android:id="@+id/dbdbdb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:imageRes="@mipmap/icon_spot_light_off"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"/>
+
+
+        <com.dl.mybaseproject.demo10.RoundCornerProgressBar
+            android:id="@+id/progress"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="10dp"
+            app:radius="15dp"
+            app:backgroundColor="@android:color/darker_gray"
+            app:progressColor="@android:color/holo_blue_light"
+            app:pathWidth="5dp"
+            app:startOffset="0.3"/>
+
+
+    </LinearLayout>
+</ScrollView>

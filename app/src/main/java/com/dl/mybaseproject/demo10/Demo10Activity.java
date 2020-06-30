@@ -1,9 +1,9 @@
 package com.dl.mybaseproject.demo10;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
-import android.widget.LinearLayout;
-
 import com.dl.common.base.BaseActivity;
 import com.dl.mybaseproject.R;
 
@@ -14,8 +14,12 @@ import butterknife.OnClick;
 public class Demo10Activity extends BaseActivity {
     @BindView(R.id.dbdbdb)
     CircleProgressImageView dbdbdb;
-    @BindView(R.id.activity_main)
-    LinearLayout activityMain;
+    @BindView(R.id.progress)
+    RoundCornerProgressBar customPathProgressBar;
+
+    private Handler mUiHandler = new Handler(Looper.getMainLooper());
+    protected int progress;
+
     @Override
     public int getContentViewId() {
         return R.layout.activity_demo10;
@@ -23,7 +27,34 @@ public class Demo10Activity extends BaseActivity {
 
     @Override
     public void init(Bundle savedInstanceState) {
+        customPathProgressBar.setProgress(0);
 
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                while (true) {
+                    mUiHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (progress == 100) {
+                                progress = 0;
+                            }
+                            progress += 1;
+                            customPathProgressBar.setProgress(progress);
+                        }
+                    });
+
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+        }).start();
     }
 
     @Override
