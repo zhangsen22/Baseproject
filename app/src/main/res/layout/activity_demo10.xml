@@ -302,7 +302,7 @@
                 android:layout_marginTop="@dimen/gap"
                 android:max="200"
                 android:padding="15dp"
-                android:progress="40"
+                android:progress="80"
                 app:bga_pb_mode="horizontal"/>
 
             <com.dl.mybaseproject.demo10.BGAProgressBar
@@ -382,6 +382,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/gap"
                     android:padding="15dp"
+                    android:max="3600"
+                    android:min="0"
                     android:progress="40"
                     app:bga_pb_isCapRounded="false"
                     app:bga_pb_isHiddenText="true"
@@ -417,6 +419,24 @@
             app:progressColor="@android:color/holo_blue_light"
             app:pathWidth="5dp"
             app:startOffset="0.3"/>
+
+        <com.dl.mybaseproject.demo10.BGAProgressBar
+            android:id="@+id/dghdhdhdhdhdhhdhdhdh"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            app:bga_pb_mode="round"
+            app:bga_pb_isCapRounded="true"
+            android:progress="40"
+            android:max="3600"
+            android:min="0"
+            app:bga_pb_radius="15dp"
+            app:bga_pb_unReachedColor="@android:color/black"
+            app:bga_pb_reachedColor="@android:color/holo_blue_light"
+            app:bga_pb_unReachedHeight="5dp"
+            app:bga_pb_reachedHeight="5dp"
+            app:startOffsetRound="0.5"/>
 
 
     </LinearLayout>

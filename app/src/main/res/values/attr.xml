@@ -31,6 +31,8 @@
             <enum name="comet" value="3"/>
             <!-- 水波纹进度条 -->
             <enum name="wave" value="4"/>
+            <!-- 圆角矩形进度条 -->
+            <enum name="round" value="5"/>
         </attr>
         <!-- 文字颜色，默认值为 #70A800 -->
         <attr name="bga_pb_textColor" format="reference|color"/>
@@ -46,12 +48,14 @@
         <attr name="bga_pb_unReachedColor" format="reference|color"/>
         <!-- 未完成进度的高度，默认值为 1dp -->
         <attr name="bga_pb_unReachedHeight" format="dimension"/>
-        <!-- 是否为圆角，默认值为 false -->
+        <!-- 进度是否为圆角，默认值为 false -->
         <attr name="bga_pb_isCapRounded" format="boolean"/>
         <!-- 是否隐藏文字，默认值为 false -->
         <attr name="bga_pb_isHiddenText" format="boolean"/>
         <!-- 圆形进度条半径，默认值为 16dp -->
         <attr name="bga_pb_radius" format="dimension"/>
+<!--        圆角矩形-->
+        <attr name="startOffsetRound" format="float" />
     </declare-styleable>
 
 

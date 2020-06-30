@@ -5,6 +5,8 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.PathMeasure;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.AttributeSet;
@@ -12,6 +14,7 @@ import android.util.TypedValue;
 import android.widget.ProgressBar;
 
 import com.dl.mybaseproject.R;
+import com.dl.mybaseproject.Utils;
 
 /**
  * 作者:王浩 邮件:bingoogolapple@gmail.com
@@ -45,6 +48,8 @@ public class BGAProgressBar extends ProgressBar {
     private Rect mTextRect = new Rect();
 
     private String mText;
+
+    private float mStartOffsetPercent;
 
     public BGAProgressBar(Context context) {
         this(context, null);
@@ -116,6 +121,8 @@ public class BGAProgressBar extends ProgressBar {
             mIsHiddenText = typedArray.getBoolean(attr, mIsHiddenText);
         } else if (attr == R.styleable.BGAProgressBar_bga_pb_radius) {
             mRadius = typedArray.getDimensionPixelOffset(attr, mRadius);
+        }else if (attr == R.styleable.BGAProgressBar_startOffsetRound) {
+            mStartOffsetPercent = typedArray.getFloat(attr, 0);
         }
     }
 
@@ -157,6 +164,8 @@ public class BGAProgressBar extends ProgressBar {
         } else if (mMode == Mode.Wave) {
             // TODO
             super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        }else if (mMode == Mode.Round) {
+            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         }
     }
 
@@ -174,7 +183,44 @@ public class BGAProgressBar extends ProgressBar {
         } else if (mMode == Mode.Wave) {
             // TODO
             super.onDraw(canvas);
+        }else if (mMode == Mode.Round) {
+            drawProgress(canvas);
         }
+    }
+
+    private void drawProgress(Canvas canvas){
+        canvas.save();
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setColor(mUnReachedColor);
+        mPaint.setStrokeWidth(mUnReachedHeight);
+        RectF rectF = new RectF(mUnReachedHeight,mUnReachedHeight,getWidth()-mUnReachedHeight,getHeight()-mUnReachedHeight);
+        canvas.drawRoundRect(rectF, mRadius, mRadius, mPaint);
+
+
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setColor(mReachedColor);
+        mPaint.setStrokeWidth(mReachedHeight);
+        RectF rectF1 = new RectF(mReachedHeight,mReachedHeight,getWidth()-mReachedHeight,getHeight()-mReachedHeight);
+        Path path = new Path();
+        path.addRoundRect(rectF1, mRadius, mRadius, Path.Direction.CW);
+        Path mRenderPaths = new Path();
+        PathMeasure mPathMeasure = new PathMeasure(path, false);
+        float pathOffset = mPathMeasure.getLength() * (getProgress()/((float)getMax()));
+        float startOffset = mPathMeasure.getLength() * mStartOffsetPercent;
+        if(pathOffset + startOffset < mPathMeasure.getLength()){
+            if (mPathMeasure.getSegment(startOffset, startOffset + pathOffset, mRenderPaths, true)) {
+                canvas.drawPath(mRenderPaths, mPaint);
+            }
+        } else {
+            if (mPathMeasure.getSegment(startOffset, mPathMeasure.getLength(), mRenderPaths, true)) {
+                canvas.drawPath(mRenderPaths, mPaint);
+            }
+            if (mPathMeasure.getSegment(0, pathOffset + startOffset - mPathMeasure.getLength(), mRenderPaths, true)) {
+                canvas.drawPath(mRenderPaths, mPaint);
+            }
+        }
+
+        canvas.restore();
     }
 
     private void onDrawHorizontal(Canvas canvas) {
@@ -280,7 +326,8 @@ public class BGAProgressBar extends ProgressBar {
         Horizontal,
         Circle,
         Comet,
-        Wave
+        Wave,
+        Round
     }
 
     public static int dp2px(Context context, float dpValue) {
