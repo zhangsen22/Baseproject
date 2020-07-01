@@ -428,7 +428,7 @@
             android:layout_marginTop="10dp"
             app:bga_pb_mode="round"
             app:bga_pb_isCapRounded="true"
-            android:progress="40"
+            android:progress="400"
             android:max="3600"
             android:min="0"
             app:bga_pb_radius="15dp"
@@ -436,7 +436,7 @@
             app:bga_pb_reachedColor="@android:color/holo_blue_light"
             app:bga_pb_unReachedHeight="5dp"
             app:bga_pb_reachedHeight="5dp"
-            app:startOffsetRound="0.5"/>
+            app:startOffsetRound="0"/>
 
 
     </LinearLayout>
