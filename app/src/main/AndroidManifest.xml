@@ -66,6 +66,10 @@
         <activity
             android:name=".demo10.Demo10Activity"
             android:theme="@style/AppTheme.Transparent" />
+
+        <activity
+            android:name=".demo11.Demo11Activity"
+            android:theme="@style/AppTheme.Transparent" />
     </application>
 
 </manifest>

@@ -12,6 +12,7 @@ import com.dl.common.utils.ToastUtil;
 import com.dl.mybaseproject.R;
 import com.dl.mybaseproject.demo1.Demo1Activity;
 import com.dl.mybaseproject.demo10.Demo10Activity;
+import com.dl.mybaseproject.demo11.Demo11Activity;
 import com.dl.mybaseproject.demo2.Demo2Activity;
 import com.dl.mybaseproject.demo3.view.Demo3Activity;
 import com.dl.mybaseproject.demo4.Demo4Activity;
@@ -99,6 +100,7 @@ public class MainActivity extends BaseActivity {
         data.add(new MainDataBean(R.mipmap.home_more, "自定义Behavior", Demo8Activity.class));
         data.add(new MainDataBean(R.mipmap.home_more, "滚动显示TextView的数字,支持自定义每个字符速度。", Demo9Activity.class));
         data.add(new MainDataBean(R.mipmap.home_more, "Xfermode", Demo10Activity.class));
+        data.add(new MainDataBean(R.mipmap.home_more, "Xfermode", Demo11Activity.class));
 
         for (int i = 0; i < 20; i++) {
             data.add(new MainDataBean(R.mipmap.home_more, "待续", Demo1Activity.class));
